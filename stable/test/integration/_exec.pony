@@ -11,7 +11,8 @@ actor _Exec
   =>
     try
       let args = cmdline.split_by(" ")
-      let path = FilePath(h.env.root as AmbientAuth, "build/release/stable")?
+      // TODO: pass binary path
+      let path = FilePath(h.env.root as AmbientAuth, "../../../../build/release/stable")?
       let vars: Array[String] iso = []
       let auth = h.env.root as AmbientAuth
       let pm: ProcessMonitor = ProcessMonitor(auth, auth, consume notifier,

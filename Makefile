@@ -50,7 +50,8 @@ $(tests_binary): $(GEN_FILES) $(SOURCE_FILES) $(TEST_FILES) | $(BUILD_DIR)
 	${PONYC} $(arch_arg) --debug -o ${BUILD_DIR} $(SRC_DIR)/test
 
 integration: $(binary) $(tests_binary)
-	$(tests_binary) --only=integration
+	#$(tests_binary) --only=integration. # TODO fix binary path
+	cd $(SRC_DIR)/test/testdata/bad; ../../../../$(tests_binary) --only=integration_run.TestFetchBad
 
 test: $(tests_binary)
 	$^ --exclude=integration

@@ -11,3 +11,7 @@ actor Main is TestList
     test(integration.TestUsage("help"))
     test(integration.TestUsage("unknown arguments"))
     test(integration.TestVersion)
+
+    // these expect to be run in certain testdata directories
+    // see the top-level Makefile's integration target
+    test(integration.TestFetchBad)
